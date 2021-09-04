@@ -3,7 +3,7 @@ pipeline {
     stages { 
         stage('build docker images') {
             steps {
-              sh ' docker build -t peter:001 .'
+              sh 'sudo  docker build -t peter:001 .'
             }
         }
 
