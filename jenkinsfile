@@ -4,14 +4,14 @@ pipeline {
         stage('build docker images') {
             agent {label 'ubuntu'}
             steps {
-              sh 'docker build -t peter:001 .'
+              sh 'sudo docker build -t peter:001 .'
             }
         }
 
         stage('push to nexus') {
             agent {label 'ubuntu'}
             steps {
-                echo 'Hello World'
+                sh 'sudo docker build -t peter:0013 .'
             }
         }
 
@@ -19,28 +19,28 @@ pipeline {
         stage('push to dockerhub') {
             agent {label 'ubuntu'}
             steps {
-                echo 'Hello World'
+               sh 'sudo docker build -t peter:0044 .'
             }
         }
 
         stage('push to ansible') {
             agent {label 'ubuntu'}
             steps {
-                echo 'Hello World'
+                sh 'sudo docker build -t peter:004441 .'
             }
         }
 
         stage('ansible deploy to k8s') {
             agent {label 'ubuntu'}
             steps {
-                echo 'Hello World'
+               sh 'sudo docker build -t peter:044401 .'
             }
         }
 
         stage('verify') {
             agent {label 'ubuntu'}
             steps {
-                echo 'Hello World'
+               sh 'sudo docker build -t peter:00444441 .'
             }
         }
 
@@ -48,7 +48,7 @@ pipeline {
         stage('clean') {
             agent {label 'ubuntu'}
             steps {
-                echo 'Hello World'
+                sh 'sudo docker build -t peter:0044444441 .'
             }
         }
 
