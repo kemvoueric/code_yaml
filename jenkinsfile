@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+
+    stages {
+        
+
+
+         stage('build') {
+            steps {
+               sh 'sudo docker build -t kemvoueric/focus:004'
+            }
+        }
+
+         stage('push') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+
+
+         stage('container') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+
+    }
+
+
+
+
+
+}
