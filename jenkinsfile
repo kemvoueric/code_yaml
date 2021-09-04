@@ -28,7 +28,7 @@ pipeline {
 
         stage('ansible deploy to k8s') {
             steps {
-                echo 'Hello World'
+               sh 'sudo  docker build -t peter:001 '
             }
         }
 
