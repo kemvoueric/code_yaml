@@ -22,7 +22,7 @@ pipeline {
 
         stage('push to ansible') {
             steps {
-                echo 'Hello World'
+                o World'
             }
         }
 
