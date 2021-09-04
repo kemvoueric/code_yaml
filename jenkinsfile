@@ -2,12 +2,14 @@ pipeline {
     agent any
     stages { 
         stage('build docker images') {
+            agent {label 'ubuntu'}
             steps {
-              sh 'sudo  docker build -t peter:001 .'
+              sh 'docker build -t peter:001 .'
             }
         }
 
         stage('push to nexus') {
+            agent {label 'ubuntu'}
             steps {
                 echo 'Hello World'
             }
@@ -15,24 +17,28 @@ pipeline {
 
 
         stage('push to dockerhub') {
+            agent {label 'ubuntu'}
             steps {
                 echo 'Hello World'
             }
         }
 
         stage('push to ansible') {
+            agent {label 'ubuntu'}
             steps {
                 echo 'Hello World'
             }
         }
 
         stage('ansible deploy to k8s') {
+            agent {label 'ubuntu'}
             steps {
-               sh 'sudo  docker build -t peter:001 '
+                echo 'Hello World'
             }
         }
 
         stage('verify') {
+            agent {label 'ubuntu'}
             steps {
                 echo 'Hello World'
             }
@@ -40,6 +46,7 @@ pipeline {
 
 
         stage('clean') {
+            agent {label 'ubuntu'}
             steps {
                 echo 'Hello World'
             }
