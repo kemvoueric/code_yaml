@@ -3,7 +3,7 @@ pipeline {
     stages { 
         stage('build docker images') {
             steps {
-                echo 'Hello World'
+              sh ' docker build -t peter:001 .'
             }
         }
 
@@ -22,7 +22,7 @@ pipeline {
 
         stage('push to ansible') {
             steps {
-                o World'
+                echo 'Hello World'
             }
         }
 
