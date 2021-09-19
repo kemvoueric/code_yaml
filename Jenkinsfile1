@@ -1,0 +1,59 @@
+pipeline {
+    agent any
+
+    stages {
+    
+    
+        stage('cleean the envioronment') {
+            steps {
+                sh '''
+                
+                sudo docker  rmi -f $image:$tag || true
+                '''
+                
+            }
+        }
+        
+        
+         stage('build images') {
+            steps {
+                sh '''
+                sudo docker build -t $image:$tag .
+                '''
+            }
+        }
+        
+        
+        
+        stage('login to dockerhub') {
+            steps {
+                sh '''
+                sudo docker login -u $username  -p $password 
+                '''
+            }
+        }
+        
+        
+        stage('launch a container') {
+            steps {
+                sh '''
+                sudo docker run -itd  $image:$tag
+                '''
+            }
+        }
+        
+        
+        
+        
+        stage('push image to dockerhub') {
+            steps {
+                sh '''
+                sudo docker tag $image:$tag  $username/$image:$tag
+                sudo docker push $username/$image:$tag
+                '''
+            }
+        }
+        
+        
+    }
+}
