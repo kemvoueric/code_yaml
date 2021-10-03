@@ -5,7 +5,10 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'pwd'
+                sh '''
+                yum update -y 
+                yum install java-1.8.0-openjdk -y
+                '''
             }
         }
     }
