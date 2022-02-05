@@ -1,61 +1,57 @@
-stage('build docker images') {
-            agent {label 'ubuntu'}
-            steps {
-              sh ' docker build -t peter:001 .'
-            }
-        }
+pipeline {
+    agent any
 
-        stage('push to nexus') {
-            agent {label 'ubuntu'}
+    stages {
+        stage('cloning repo') {
             steps {
-                sh ' docker build -t peter:0013 .'
+                echo 'Hello World'
             }
         }
 
 
-        stage('push to dockerhub') {
-            agent {label 'ubuntu'}
-            steps {
-               sh ' docker build -t peter:0044 .'
-            }
-        }
 
-        stage('push to ansible') {
-            agent {label 'ubuntu'}
+         stage('Buildin test container') {
             steps {
-                sh ' docker build -t peter:004441 .'
-            }
-        }
-
-        stage('ansible deploy to k8s') {
-            agent {label 'ubuntu'}
-            steps {
-               sh ' docker build -t peter:044401 .'
-            }
-        }
-
-        stage('verify') {
-            agent {label 'ubuntu'}
-            steps {
-               sh ' docker build -t peter:00444441 .'
+                echo 'Hello World'
             }
         }
 
 
-        stage('clean') {
-            agent {label 'ubuntu'}
+
+         stage('testing code') {
             steps {
-                sh ' docker build -t peter:0044444441 .'
+                echo 'Hello World'
             }
         }
+
+
+         stage('Junit report') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+        
+
+         stage('Sonarqube analysis') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+
+          
+
+        stage('Sonarqube quality gate') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+
+          stage('Buiding docker images') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+        
 
     }
-
-
-
-
-
-
-
 }
-
